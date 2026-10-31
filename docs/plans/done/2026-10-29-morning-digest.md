@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-10-31
 ---
 
 # Morning digest
@@ -77,3 +78,20 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|-----------|--------|--------|
+| 1 | Run log reader | — | claude-code · opus-5.5 · high | 2026-10-31 |
+| 2 | Digest page: GET /digest/:night | #1 | claude-code · sonnet-5.5 · low | 2026-10-31 |
+| 3 | Digest JSON: GET /api/digest/:night | #1 | claude-code · haiku-5.5 · low | 2026-10-31 |
+| 4 | Board links each night to its digest | #1 | claude-code · sonnet-5.5 · low | 2026-10-31 |
+| 5 | Digest route tests | #1 | claude-code · haiku-5.5 · low | 2026-10-31 |
+| 6 | Preview for review | #1–#5 | claude-code · opus-5.5 · xhigh | 2026-10-31 |
+| 7 | Clean up the preview, close the plan | #6 | claude-code · opus-5.5 · xhigh | 2026-10-31 |
+
+#2–#5 started in parallel from #1's first commit (`src/digest/types.ts`). #6 was closed before the
+reviewer looked and reopened; it closed again once the review was in. The preview went up through
+the `preview` workflow (GitHub Pages from an Actions artifact, never committed) and was uploaded
+over with no marker the same day.
